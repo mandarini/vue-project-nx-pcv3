@@ -2,10 +2,42 @@
   "targetDefaults": {
     "build": {
       "cache": true
+    },
+    "@nx/vite:test": {
+      "cache": true,
+      "inputs": [
+        "default",
+        "^default"
+      ]
     }
   },
   "affected": {
     "defaultBase": "master"
   },
-  "nxCloudAccessToken": "YTAwZDU2ZjItN2I2Ny00YzRiLWIzOTctOWMyNDYwNTNjY2M2fHJlYWQtd3JpdGU="
+  "nxCloudAccessToken": "YTAwZDU2ZjItN2I2Ny00YzRiLWIzOTctOWMyNDYwNTNjY2M2fHJlYWQtd3JpdGU=",
+  "plugins": [
+    {
+      "plugin": "@nx/cypress/plugin",
+      "options": {
+        "targetName": "e2e",
+        "componentTestingTargetName": "component-test"
+      }
+    },
+    {
+      "plugin": "@nx/vite/plugin",
+      "options": {
+        "buildTargetName": "build",
+        "previewTargetName": "preview",
+        "testTargetName": "test",
+        "serveTargetName": "serve",
+        "serveStaticTargetName": "serve-static"
+      }
+    },
+    {
+      "plugin": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint"
+      }
+    }
+  ]
 }
